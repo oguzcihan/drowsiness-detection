@@ -1,0 +1,5 @@
+-- CREATE TABLE alarm_data (
+--     id SERIAL PRIMARY KEY,
+--     alarm_time TIMESTAMP NOT NULL,
+--     additional_data TEXT
+-- );
