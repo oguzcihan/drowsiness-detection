@@ -18,5 +18,12 @@ It is a Drowsiness Detection platform written using **flask** framework.
 ## Setup
 ---
 * Clone this repository and run following commands.
-* `pip install -r requirements.txt`
-* `py app.py`
+```bash
+docker compose up -d
+```
+```bash
+pip install -r requirements.txt
+```
+```bash
+py app.py
+```
