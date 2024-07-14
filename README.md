@@ -33,8 +33,8 @@ flask --app app.py run
 ```
 
 # Screenshots :
-![](https://github.com/oguzcihan/drowsiness-detection/blob/main/img/Screensho2t.png)
-![](https://github.com/oguzcihan/drowsiness-detection/blob/main/img/Screenshot.png)
-![](https://github.com/oguzcihan/drowsiness-detection/blob/main/img/Screenshot3.png)
+![](https://github.com/oguzcihan/drowsiness-detection/blob/master/img/Screensho2t.png)
+![](https://github.com/oguzcihan/drowsiness-detection/blob/master/img/Screenshot.png)
+![](https://github.com/oguzcihan/drowsiness-detection/blob/master/img/Screenshot3.png)
 
 
