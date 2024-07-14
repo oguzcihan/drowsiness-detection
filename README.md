@@ -27,3 +27,8 @@ pip install -r requirements.txt
 ```bash
 py app.py
 ```
+* If you command is not working, try this command.
+```bash
+flask --app app.py run
+```
+
