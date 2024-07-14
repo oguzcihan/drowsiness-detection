@@ -45,7 +45,7 @@ def detect_drowsiness():
     right_eye_cascade = cv2.CascadeClassifier("static/haarcascade_righteye_2splits.xml")
 
     # Gözlerin açık/kapalı olup olmadığını tahmin etmek için derin öğrenme modelini yükler.
-    model = load_model("static/best-model.h5")
+    model = load_model("static/best-model4Cat.h5")
 
     count = 0  # Gözlerin kapalı kaldığı süreyi saymak için sayaç.
     alarm_on = False  # Alarmın çalıyor olup olmadığını takip etmek için.
@@ -75,7 +75,7 @@ def detect_drowsiness():
             for (x1, y1, w1, h1) in left_eye:
                 cv2.rectangle(roi_color, (x1, y1), (x1 + w1, y1 + h1), (0, 255, 0), 1)  # Sol gözü çerçevele.
                 eye1 = roi_gray[y1:y1 + h1, x1:x1 + w1]  # Sol göz bölgesini gri tonlamada al.
-                eye1 = cv2.resize(eye1, (64, 64))  # Sol göz bölgesini yeniden boyutlandır.
+                eye1 = cv2.resize(eye1, (145, 145))  # Sol göz bölgesini yeniden boyutlandır.
                 eye1 = eye1.astype('float') / 255.0  # Piksel değerlerini normalize et.
                 eye1 = np.expand_dims(eye1, axis=-1)  # Göz görüntüsüne kanal boyutu ekle.
                 eye1 = np.expand_dims(eye1, axis=0)  # Göz görüntüsüne batch boyutu ekle.
@@ -86,7 +86,7 @@ def detect_drowsiness():
             for (x2, y2, w2, h2) in right_eye:
                 cv2.rectangle(roi_color, (x2, y2), (x2 + w2, y2 + h2), (0, 255, 0), 1)  # Sağ gözü çerçevele.
                 eye2 = roi_gray[y2:y2 + h2, x2:x2 + w2]  # Sağ göz bölgesini gri tonlamada al.
-                eye2 = cv2.resize(eye2, (64, 64))  # Sağ göz bölgesini yeniden boyutlandır.
+                eye2 = cv2.resize(eye2, (145, 145))  # Sağ göz bölgesini yeniden boyutlandır.
                 eye2 = eye2.astype('float') / 255.0  # Piksel değerlerini normalize et.
                 eye2 = np.expand_dims(eye2, axis=-1)  # Göz görüntüsüne kanal boyutu ekle.
                 eye2 = np.expand_dims(eye2, axis=0)  # Göz görüntüsüne batch boyutu ekle.
@@ -124,7 +124,7 @@ def detect_drowsiness():
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')  # HTTP yanıtı olarak çerçeveyi döndür.
 
-    cap.release()  # Video yakalamayı serbest bırak.
+    cap.release()
 
 
 def start_alarm(sound, stop_event):
